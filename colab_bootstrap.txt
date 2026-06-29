@@ -1,6 +1,6 @@
 # ── In Tandem DS take-home — Colab one-cell bootstrap ──────────────────────
-# Replace <REPO_URL> with the repo we sent you, then run this cell.
-!git clone -q <REPO_URL> task
+# Replace https://github.com/LaurynasRekasius/DS_HW.git with the repo we sent you, then run this cell.
+!git clone -q https://github.com/LaurynasRekasius/DS_HW.git task
 %cd task
 !pip -q install -r requirements.txt
 import pandas as pd
