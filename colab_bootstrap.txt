@@ -4,10 +4,13 @@
 %cd task
 !pip -q install -r requirements.txt
 import pandas as pd
-train   = pd.read_csv("data/train.csv")     # randomized experiment: has treatment, churned
+train   = pd.read_csv("data/train.csv")     # randomized experiment: offer_arm (0-3), churned
 holdout = pd.read_csv("data/holdout.csv")    # disjoint slice for HONEST evaluation (don't train on it)
-scoring = pd.read_csv("data/scoring.csv")    # prospective users to TARGET (no treatment/churned)
+scoring = pd.read_csv("data/scoring.csv")    # prospective users to allocate offers for (no offer_arm/churned)
 print(train.shape, holdout.shape, scoring.shape)
-# Build an uplift model, then write your two deliverables:
-#   target.csv         -> user_id of the <=6,000 (15%) you choose to treat
+# READ data/data_dictionary.md — one column (offer_window_logins) is a measurement trap.
+# Arms: 0 none $0 | 1 nudge $1 | 2 discount $5 | 3 concierge $15.  Total budget: $40,000.
+# Deliverables:
+#   allocation.csv     -> user_id, offer_arm (0-3); total cost <= $40,000
 #   holdout_scores.csv -> user_id, uplift_score for EVERY holdout row
+# Show your iteration steps (this notebook should reveal how you got there).
